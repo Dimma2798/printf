@@ -1,5 +1,7 @@
 #include "main.h"
 
+int _printf(const char *format, ...);
+
 /**
  * _printf - produces output according to a format
  * @format: Character string that directs the format of the output
@@ -26,11 +28,11 @@ int _printf(const char *format, ...)
 				if (s == NULL)
 					s = "(null)";
 
-				numbers += simputchar(s);
+				numbers += simputs(s);
 			}
 			else if (format[q] == 'i' || format[q] == 'd')
 			{
-				simpprintf(buffer, sizeof(buffer), "%d", va_arg(args, int));
+				snprintf(buffer, sizeof(buffer), "%d", va_arg(args, int));
 				numbers += simputs(buffer);
 			}
 			else if (format[q] == '%')

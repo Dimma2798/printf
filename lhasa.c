@@ -26,12 +26,12 @@ void controlstr(const char *format, va_list args, int *numbers)
 	}
 	else if (*format == 'i' || *format == 'd')
 	{
-		simpprintf(buffer, sizeof(buffer), "%d", va_arg(args, int));
+		snprintf(buffer, sizeof(buffer), "%d", va_arg(args, int));
 		(*numbers) += simputs(buffer);
 	}
 	else if (*format == 'u' || *format == 'o' || *format == 'x' || *format == 'X')
 	{
-		simpprintf(buffer, sizeof(buffer),
+		snprintf(buffer, sizeof(buffer),
 		(*format == 'u') ? "%u" :
 		((*format == 'o') ? "%o" :
 		((*format == 'x') ? "%x" : "%X")),
